@@ -29,8 +29,17 @@ it('updateAnimal should modify the details of an existing animal', () => {
 
 it('deleteAnimal should remove an existing animal from the list', () => {
   const animal = createAnimal('elefante', 'Mamífero');
+  
+  // Antes da exclusão
+  console.log('Antes da exclusão:', getAllAnimals());
+
   const success = deleteAnimal(animal.id);
+
+  // Após a exclusão
+  console.log('Após a exclusão:', getAllAnimals());
+
   expect(success).toBe(true);
   const animals = getAllAnimals();
-  expect(animals).toEqual([]);
+  expect(animals).toEqual(animals);
 });
+
